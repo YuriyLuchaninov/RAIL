@@ -1,3 +1,23 @@
-.warning{
+body {
+    background: #ffffff !important;
+}
+
+.warning {
     color: #cc7218;
+}
+
+.attention {
+    color: #2a76dd;
+    font-weight: 700 !important;
+}
+
+.img {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
 }

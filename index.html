@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>reveal.js – The HTML Presentation Framework</title>
+    <title>Cross-Platform Apps</title>
 
     <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
     <meta name="author" content="Hakim El Hattab">
@@ -16,8 +16,8 @@
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
     <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="css/theme/beige.css" id="theme">
+    <link rel="stylesheet" href="css/custom.css">
 
     <!-- Code syntax highlighting -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
@@ -49,13 +49,103 @@
             <p>
                 <small>Yuriy Luchaninov <a href="http://mobidev.biz/">Mobidev.biz</a></small>
             </p>
+
+            <aside class="notes">
+                1) Предсталяемся
+                2) Говорим о том о чем будет доклад
+                3) Говорим о структуре доклада из каких частей будет состоять и сколько займет.
+                4) Говорим что вопросы можно будет задать после доклада
+            </aside>
         </section>
 
         <section>
-            <h3>Real App Video</h3>
+            <h2>Why CrossPlatform ?</h2>
+            <ul>
+                <li class="fragment">it takes less money for development</li>
+                <li class="fragment">it takes less money for changing</li>
+                <li class="fragment">sometimes it's the only way to implement the necessary functionality</li>
+            </ul>
+            <h3 class="fragment"><span class="warning">Only three reasons</span></h3>
+
+            <aside class="notes">
+                Говорим, что в реальном мире есть всего три причины использовать кроссплатформу и приводим примеры.
+            </aside>
+        </section>
+
+        <section>
+            <h2>Always Exist "BUT"</h2>
+            <p class="fragment">
+                JS platforms don't have enough performance!
+            </p>
+            <h3 class="fragment"><span class="warning"><span style="text-decoration: underline;">But</span> it's just opinion</span></h3>
+        </section>
+
+        <section>
+            <h2>What is Performance?</h2>
+            <div style="position:relative; height:405px; margin:0 auto;">
+                <img class="img" height="405" src="assets/img/first.png" />
+                <img class="img fragment" height="405" src="assets/img/first_1.png" />
+                <img class="img fragment" height="405" src="assets/img/first_2.png" />
+                <img class="img fragment" height="405" src="assets/img/first_3.png" />
+            </div>
+            <p><span class="attention">"Fast is good, faster is better"</span> - every bit of pref research</p>
+        </section>
+
+        <section>
+            <h2>In Real Life</h2>
+            <div style="position:relative; height:405px; margin:0 auto;">
+                <img class="img fragment" height="405" src="assets/img/second.png" />
+                <img class="img fragment" height="405" src="assets/img/second_1.png" />
+                <img class="img fragment" height="405" src="assets/img/second_2.png" />
+            </div>
+        </section>
+
+        <section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-video-loop>
+            <h1><span class="warning">Is 50ms "Too Slow"?</span></h1>
+            <aside class="notes">
+                Показываем видео рального приложения, и спрашиваем 50 мс это мало или много?
+            </aside>
+        </section>
+
+        <section>
+            <h2>Real Performance Criteria</h2>
+            <p>
+            <table>
+                <thead>
+                <tr>
+                    <th>Response</th>
+                    <th>Animation</th>
+                    <th>Idle</th>
+                    <th>Load</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Tap to paint in less then 100 ms</td>
+                    <td>Each frame completes in less then 16ms</td>
+                    <td>Use idle time to proactively schedule work</td>
+                    <td>Satisfy the Response goals during load</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Drag to paint in less then 16ms</td>
+                    <td>Complete that work in 50ms chunks</td>
+                    <td>Get first meaningful paint in 1,000ms</td>
+                </tr>
+                </tbody>
+            </table>
+            </p>
+        </section>
+
+
+        <section>
+            <h2>New Slide</h2>
             <p>
 
             </p>
+            <aside class="notes">
+                smth
+            </aside>
         </section>
 
     </div>
