@@ -39,6 +39,12 @@
 <body>
 <!--start of presentation-->
 <div class="reveal">
+    <div class='footer'>
+        <div id="response" style="background: darkviolet;">Response</div>
+        <div id="animation" style="background: deeppink;">Animation</div>
+        <div id="idle" style="background: dimgrey;">Idle</div>
+        <div id="load" style="background: blue;">Load</div>
+    </div>
 
     <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
@@ -77,16 +83,17 @@
             <p class="fragment">
                 JS platforms don't have enough performance!
             </p>
-            <h3 class="fragment"><span class="warning"><span style="text-decoration: underline;">But</span> it's just opinion</span></h3>
+            <h3 class="fragment"><span class="warning"><span style="text-decoration: underline;">But</span> it's just opinion</span>
+            </h3>
         </section>
 
         <section>
             <h2>What is Performance?</h2>
             <div style="position:relative; height:405px; margin:0 auto;">
-                <img class="img" height="405" src="assets/img/first.png" />
-                <img class="img fragment" height="405" src="assets/img/first_1.png" />
-                <img class="img fragment" height="405" src="assets/img/first_2.png" />
-                <img class="img fragment" height="405" src="assets/img/first_3.png" />
+                <img class="img" height="405" src="assets/img/first.png"/>
+                <img class="img fragment" height="405" src="assets/img/first_1.png"/>
+                <img class="img fragment" height="405" src="assets/img/first_2.png"/>
+                <img class="img fragment" height="405" src="assets/img/first_3.png"/>
             </div>
             <p><span class="attention">"Fast is good, faster is better"</span> - every bit of pref research</p>
         </section>
@@ -94,13 +101,15 @@
         <section>
             <h2>In Real Life</h2>
             <div style="position:relative; height:405px; margin:0 auto;">
-                <img class="img fragment" height="405" src="assets/img/second.png" />
-                <img class="img fragment" height="405" src="assets/img/second_1.png" />
-                <img class="img fragment" height="405" src="assets/img/second_2.png" />
+                <img class="img fragment" height="405" src="assets/img/second.png"/>
+                <img class="img fragment" height="405" src="assets/img/second_1.png"/>
+                <img class="img fragment" height="405" src="assets/img/second_2.png"/>
             </div>
         </section>
 
-        <section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-video-loop>
+        <section
+                data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm"
+                data-background-video-loop>
             <h1><span class="warning">Is 50ms "Too Slow"?</span></h1>
             <aside class="notes">
                 Показываем видео рального приложения, и спрашиваем 50 мс это мало или много?
@@ -108,44 +117,120 @@
         </section>
 
         <section>
-            <h2>Real Performance Criteria</h2>
-            <p>
+            <h2>Real Life</h2>
             <table>
                 <thead>
                 <tr>
-                    <th>Response</th>
-                    <th>Animation</th>
-                    <th>Idle</th>
-                    <th>Load</th>
+                    <th class="invert" style="background: #0073cc;">Delay</th>
+                    <th class="invert" style="background: #0073cc;">User reaction</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <td>Tap to paint in less then 100 ms</td>
-                    <td>Each frame completes in less then 16ms</td>
-                    <td>Use idle time to proactively schedule work</td>
-                    <td>Satisfy the Response goals during load</td>
+                    <td class="green">0-100ms</td>
+                    <td>Instant</td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td>Drag to paint in less then 16ms</td>
-                    <td>Complete that work in 50ms chunks</td>
-                    <td>Get first meaningful paint in 1,000ms</td>
+                    <td class="orange">100-300ms</td>
+                    <td>Slight perceptible delay</td>
+                </tr>
+                <tr>
+                    <td class="red">300-1,000ms</td>
+                    <td>Task focus, perceptible delay</td>
+                </tr>
+                <tr>
+                    <td class="unacceptable">+1,000ms</td>
+                    <td>Mental context switch</td>
+                </tr>
+                <tr>
+                    <td class="unacceptable">+10,000ms</td>
+                    <td>I'll come back later</td>
                 </tr>
                 </tbody>
             </table>
-            </p>
         </section>
 
+        <section>
+            <h2>Real Performance Criteria</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th class="pink">Response</th>
+                    <th class="violet">Animation</th>
+                    <th class="grey">Idle</th>
+                    <th class="blue">Load</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Tap to paint in <span class="pink">less then 100 ms</span></td>
+                    <td>Each frame completes in <span class="violet">less then 16ms</span></td>
+                    <td>Use idle time to proactively schedule work</td>
+                    <td>Satisfy the <span class="blue">Response</span> goals during load</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Drag to paint in <span class="violet">less then 16ms</span></td>
+                    <td>Complete that work in <span class="grey">50ms chunks</span></td>
+                    <td>Get first meaningful paint in <span class="blue">1,000ms</span></td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
 
         <section>
-            <h2>New Slide</h2>
-            <p>
+            <h1><span class="pink">R</span><span class="violet">A</span><span class="grey">I</span><span
+                    class="blue">L</span> puts the <span class="warning">User</span></h1>
+            <h1><span class="attention">in the center</span></h1>
+        </section>
 
-            </p>
-            <aside class="notes">
-                smth
-            </aside>
+        <!--response part-->
+        <section data-background-color="darkviolet">
+            <h1><span class="invert">Response</span></h1>
+        </section>
+
+        <section>
+            <h1><span class="violet" style="text-transform: none;">100ms</span></h1>
+            <h3>The Users feels an <span class="violet">instantaneous</span> response.</h3>
+            <p>Any longer and the connection between action and reaction is broken.</p>
+        </section>
+
+        <!--animation part-->
+        <section data-background-color="deeppink">
+            <h1><span class="invert">Animation</span></h1>
+        </section>
+
+        <section>
+            <h1><span class="pink" style="text-transform: none;">16ms</span></h1>
+            <h3>Visual changes feel <span class="pink">smooth and consistent</span>.</h3>
+            <p>Any variation in frame rate will be disconcerting to the user.</p>
+        </section>
+
+        <!--idle part-->
+        <section data-background-color="dimgrey">
+            <h1><span class="invert">Idle</span></h1>
+        </section>
+
+        <section>
+            <h1><span style="color: grey; text-transform: none;">50ms</span></h1>
+            <h3>Allows for <span style="color: grey">responding</span> to user interaction.</h3>
+            <p>Any longer and we may not be responsive.</p>
+        </section>
+
+        <!--load part-->
+        <section data-background-color="blue">
+            <h1><span class="invert">Load</span></h1>
+        </section>
+
+        <section>
+            <h1><span class="blue" style="text-transform: none;">1sec</span></h1>
+            <h3>The User's flow of <span class="blue">thought</span> is <span class="blue">seamless</span>.</h3>
+            <p>Beyond it, the user, loses focus and attention.</p>
+        </section>
+
+        <!--conclusion part-->
+        <section>
+            <h2>Conclusion</h2>
         </section>
 
     </div>
@@ -195,6 +280,49 @@
         ]
     });
 
+</script>
+
+<script>
+    (function () {
+        var map = {
+            response: [7, 9],
+            animation: [7],
+            idle: [7],
+            load: [7]
+        };
+
+        var response = document.querySelector('#response');
+        var animation = document.querySelector('#animation');
+        var idle = document.querySelector('#idle');
+        var load = document.querySelector('#load');
+
+        // displayed upon load, hides when slide changes
+        Reveal.addEventListener('slidechanged', function (event) {
+            if (map.response.indexOf(event.indexh) !== -1) {
+                response.style.display = 'inline-block';
+            } else {
+                response.style.display = 'none';
+            }
+
+            if (map.animation.indexOf(event.indexh) !== -1) {
+                animation.style.display = 'inline-block';
+            } else {
+                animation.style.display = 'none';
+            }
+
+            if (map.idle.indexOf(event.indexh) !== -1) {
+                idle.style.display = 'inline-block';
+            } else {
+                idle.style.display = 'none';
+            }
+
+            if (map.load.indexOf(event.indexh) !== -1) {
+                load.style.display = 'inline-block';
+            } else {
+                load.style.display = 'none';
+            }
+        });
+    })();
 </script>
 
 </body>

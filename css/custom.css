@@ -1,5 +1,5 @@
 body {
-    background: #ffffff !important;
+    /*background: #ffffff !important;*/
 }
 
 .warning {
@@ -20,4 +20,67 @@ body {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.violet {
+    color: darkviolet;
+    font-weight: 600 !important;
+}
+
+.pink {
+    color: deeppink;
+    font-weight: 600 !important;
+}
+
+.blue {
+    color: blue;
+    font-weight: 600 !important;
+}
+
+.grey {
+    color: dimgrey;
+    font-weight: 600 !important;
+}
+
+.invert {
+    color: white;
+}
+
+.reveal .footer {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 48px;
+    width: 100%;
+    color: white;
+    font-weight: 600 !important;
+    font-size: 0;
+}
+
+.reveal .footer div {
+    font-size: 18px;
+    width: 25%;
+    height: 100%;
+    display: none;
+    margin: 0;
+    padding: 14px;
+    box-sizing: border-box;
+}
+
+.green {
+    color: green;
+}
+
+.orange {
+    color: darkorange;
+}
+
+.red {
+    color: red;
+}
+
+.unacceptable {
+    color: blueviolet;
 }
