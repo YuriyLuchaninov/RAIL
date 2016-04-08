@@ -1,5 +1,5 @@
 body {
-    /*background: #ffffff !important;*/
+    background: #f7f2e4 !important;
 }
 
 .warning {
@@ -83,4 +83,9 @@ body {
 
 .unacceptable {
     color: blueviolet;
+}
+
+html.img-center div.slide-background.present {
+    background-size: 100% 4px;
+    background-repeat: repeat-y;
 }
