@@ -203,21 +203,21 @@
         </section>
 
         <section>
-            <h3>Tip 1: </h3>
+            <h3>Tip 1: Use "fastclick" library</h3>
             <p>
 
             </p>
         </section>
 
         <section>
-            <h3>Tip 2: </h3>
+            <h3>Tip 2: Use unblocking interaction patterns</h3>
             <p>
 
             </p>
         </section>
 
         <section>
-            <h3>Tip 3: </h3>
+            <h3>Tip 3: Check your "tap" areas</h3>
             <p>
 
             </p>
@@ -233,9 +233,9 @@
         <section>
             <h3>Checklist</h3>
             <ul>
-                <li>Non blocking interaction patterns</li>
-                <li>fast click</li>
-                <li>tap area</li>
+                <li>Use "fastclick" library</li>
+                <li>Use unblocking interaction patterns</li>
+                <li>Check your "tap" areas</li>
             </ul>
         </section>
 
@@ -251,24 +251,47 @@
         </section>
 
         <section>
-            <h3>Tip 1: </h3>
+            <h3><span class="warning">But:</span> in real life</h3>
             <p>
-
+                <img height="338" src="assets/img/animation.jpg"/>
             </p>
         </section>
 
         <section>
-            <h3>Tip 2: </h3>
-            <p>
-
-            </p>
+            <h3>Tip 1: Use <span class="pink">FLIP</span></h3>
+            <ul>
+                <li><span class="pink">F</span>irst: the initial state of the element(s) involved in the
+                    transition.
+                </li>
+                <li><span class="pink">L</span>ast: the final state of the element(s)</li>
+                <li><span class="pink">I</span>nvert: here’s the fun bit. You figure out from the first and last
+                    how the element has changed, so – say – its width, height, opacity. Next you apply transforms and
+                    opacity changes to reverse, or invert, them.
+                </li>
+                <li><span class="pink">P</span>lay: switch on transitions for any of the properties you changed,
+                    and then remove the inversion changes.
+                </li>
+            </ul>
         </section>
 
         <section>
-            <h3>Tip 3: </h3>
-            <p>
-
-            </p>
+            <h3>Tip 2: Use CSS animation</h3>
+            <ul class="fragment fade-out"
+               style="position:absolute; margin-left: auto; margin-right: auto; left: 0; right: 0;"
+               data-fragment-index="0">
+                <li>transform: translateZ(0);</li>
+                <li>transform: translate3d(0,0,0);</li>
+            </ul>
+            <ul class="fragment fade-in warning"
+               style="position:absolute; margin-left: auto; margin-right: auto; left: 0; right: 0;"
+               data-fragment-index="0">
+                <li>In CPU we operate objects, in GPU - textures</li>
+                <li>Transition CPU - always separate repaint</li>
+                <li>Transition CPU - GPU takes time</li>
+                <li>Memory consumptions grows</li>
+                <li>One can anciently transfer unnecessary elements to GPU</li>
+                <li>*{transform: translateZ(0);} - BAD!</li>
+            </ul>
         </section>
 
         <section>
@@ -281,9 +304,8 @@
         <section>
             <h3>Checklist</h3>
             <ul>
-                <li>RenderTree, Compouse Layers</li>
-                <li>FLIP</li>
-                <li>CSS Animations & RAF (FLIP approach)</li>
+                <li>Use FLIP approach</li>
+                <li>Use CSS Animations</li>
             </ul>
         </section>
 
@@ -299,14 +321,14 @@
         </section>
 
         <section>
-            <h3>Tip 1: </h3>
+            <h3>Tip 1: Divide your operations to 50ms chunks</h3>
             <p>
 
             </p>
         </section>
 
         <section>
-            <h3>Tip 2: </h3>
+            <h3>Tip 2: Use workers for background operations</h3>
             <p>
 
             </p>
@@ -322,8 +344,8 @@
         <section>
             <h3>Checklist</h3>
             <ul>
-                <li>50ms</li>
-                <li>workers</li>
+                <li>divide your operations to 50ms chunks</li>
+                <li>Use workers for background operations</li>
             </ul>
         </section>
 
@@ -339,14 +361,14 @@
         </section>
 
         <section>
-            <h3>Tip 1: </h3>
+            <h3>Tip 1: Prepare your data mockups</h3>
             <p>
 
             </p>
         </section>
 
         <section>
-            <h3>Tip 2: </h3>
+            <h3>Tip 2: Use service workers</h3>
             <p>
 
             </p>
@@ -362,8 +384,8 @@
         <section>
             <h3>Checklist</h3>
             <ul>
-                <li>service workers</li>
-                <li>data mocking</li>
+                <li>Prepare your data mockups</li>
+                <li>Use service workers</li>
             </ul>
         </section>
 
@@ -373,56 +395,56 @@
         </section>
 
         <section>
-            <h3>Tip 1: </h3>
+            <h3>Tip 1: Try to understand compose & render of layers</h3>
             <p>
 
             </p>
         </section>
 
         <section>
-            <h3>Tip 2: </h3>
+            <h3>Tip 2: DOM structure is important</h3>
             <p>
 
             </p>
         </section>
 
         <section>
-            <h3>Tip 3: </h3>
+            <h3>Tip 3: Choose modern frameworks</h3>
             <p>
 
             </p>
         </section>
 
         <section>
-            <h3>Tip 4: </h3>
+            <h3>Tip 4: Use flat or material CSS styles</h3>
             <p>
 
             </p>
         </section>
 
         <section>
-            <h3>Tip 5: </h3>
+            <h3>Tip 5: You must prepare images</h3>
             <p>
 
             </p>
         </section>
 
         <section>
-            <h3>Tip 6: </h3>
+            <h3>Tip 6: Use correct UI patterns</h3>
             <p>
-
+                <img height="338" src="assets/img/list.gif" style="background: none; border: none; box-shadow: none;"/>
             </p>
         </section>
 
         <section>
             <h3>Checklist</h3>
             <ul>
-                <li>DOM structure, direct access</li>
-                <li>template engines: Virtual DOM, Incremental DOM</li>
-                <li>flat CSS styles</li>
-                <li>prepare image</li>
-                <li>infinity lists</li>
-                <li>keep-alive/web-sockets</li>
+                <li>Try to understand compose & render of layers</li>
+                <li>DOM structure is important</li>
+                <li>Choose modern frameworks</li>
+                <li>Use flat or material CSS styles</li>
+                <li>You must prepare images</li>
+                <li>Use correct UI patterns</li>
             </ul>
         </section>
 
@@ -488,7 +510,7 @@
 </script>
 
 <script>
-    (function () { // TODO enable footer functionality
+    (function () {
         var map = {
             response: [9, 11, 12, 13, 14, 15, 16, 37, 38, 40, 41, 42, 43, 39],
             animation: [9, 18, 19, 20, 21, 22, 23, 37, 38, 40, 41, 42, 43, 39],
