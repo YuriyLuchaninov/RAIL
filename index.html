@@ -204,33 +204,59 @@
 
         <section>
             <h3>Tip 1: Use "fastclick" library</h3>
-            <p>
-
-            </p>
+            <h1><span class="warning">300MS</span></h1>
         </section>
 
         <section>
             <h3>Tip 2: Use unblocking interaction patterns</h3>
-            <p>
+            <pre style="box-shadow: none;">
+                <code class="hljs" data-trim>
+onListItemClick() {
+    // set timeout
+    let spinnerTimeout = setTimeout(showSpiner, 100);
 
-            </p>
+    // start loading the data
+    loadDetailsData().then((data) => {
+        clearTimeout(spinnerTimeout);
+        hideSpinner();
+
+        // start showbiz to transition to details
+        transitionToDetailsView(data);
+    });
+}</code>
+            </pre>
         </section>
 
         <section>
             <h3>Tip 3: Check your "tap" areas</h3>
-            <p class="fragment fade-out" style="position:absolute; margin-left: auto; margin-right: auto; left: 0; right: 0;" data-fragment-index="0">
-                <img height="338" src="assets/img/taparea.png" style="background: none; border: none; box-shadow: none;"/>
+            <p class="fragment fade-out"
+               style="position:absolute; margin-left: auto; margin-right: auto; left: 0; right: 0;"
+               data-fragment-index="0">
+                <img height="338" src="assets/img/taparea.png"
+                     style="background: none; border: none; box-shadow: none;"/>
             </p>
-            <p class="fragment fade-in" style="position:absolute; margin-left: auto; margin-right: auto; left: 0; right: 0;" data-fragment-index="0">
-                <img height="338" src="assets/img/taparea%20real.jpg" style="background: none; border: none; box-shadow: none;"/>
+            <p class="fragment fade-in"
+               style="position:absolute; margin-left: auto; margin-right: auto; left: 0; right: 0;"
+               data-fragment-index="0">
+                <img height="338" src="assets/img/taparea%20real.jpg"
+                     style="background: none; border: none; box-shadow: none;"/>
             </p>
         </section>
 
         <section>
             <h3>Measuring</h3>
-            <p>
+            <pre style="box-shadow: none;">
+                <code class="hljs" data-trim>
+sideNavToggleButton.addEventListener('click', ()=> {
+    console.time('sideNavToggleResponse');
+    this.toggleSideNav();
 
-            </p>
+    // wait until the frame
+    requestAnimationFrame(_ => {
+        console.timeEnd('sideNavToggleResponse');
+    });
+});</code>
+            </pre>
         </section>
 
         <section>
@@ -256,7 +282,8 @@
         <section>
             <h3><span class="warning">But:</span> in real life</h3>
             <p>
-                <img height="338" src="assets/img/animation.jpg" style="background: none; border: none; box-shadow: none;"/>
+                <img height="338" src="assets/img/animation.jpg"
+                     style="background: none; border: none; box-shadow: none;"/>
             </p>
         </section>
 
@@ -280,14 +307,14 @@
         <section>
             <h3>Tip 2: Use CSS animation</h3>
             <ul class="fragment fade-out"
-               style="position:absolute; margin-left: auto; margin-right: auto; left: 0; right: 0;"
-               data-fragment-index="0">
+                style="position:absolute; margin-left: auto; margin-right: auto; left: 0; right: 0;"
+                data-fragment-index="0">
                 <li>transform: translateZ(0);</li>
                 <li>transform: translate3d(0,0,0);</li>
             </ul>
             <ul class="fragment fade-in warning"
-               style="position:absolute; margin-left: auto; margin-right: auto; left: 0; right: 0;"
-               data-fragment-index="0">
+                style="position:absolute; margin-left: auto; margin-right: auto; left: 0; right: 0;"
+                data-fragment-index="0">
                 <li>In CPU we operate objects, in GPU - textures</li>
                 <li>Transition CPU - always separate repaint</li>
                 <li>Transition CPU - GPU takes time</li>
@@ -325,16 +352,72 @@
 
         <section>
             <h3>Tip 1: Divide your operations to 50ms chunks</h3>
-            <p>
+            <pre class="fragment fade-in"
+                 style="position:absolute; margin-left: auto; margin-right: auto; left: 0; right: 0; box-shadow: none;"
+                 data-fragment-index="0">
+                <code class="hljs" data-trim>
+window.requestIdleCallback =
+    window.requestIdleCallback ||
+    function (cb) {
+        var start = Date.now();
+        return setTimeout(function () {
+            cb({
+                didTimeout: false,
+                timeRemaining: function () {
+                    return Math.max(0, 50 - (Date.now() - start));
+                }
+            });
+        }, 1);
+    };</code>
+            </pre>
+            <pre class="fragment fade-out"
+                 style="position:absolute; margin-left: auto; margin-right: auto; left: 0; right: 0; box-shadow: none;"
+                 data-fragment-index="0">
+                <code class="hljs" data-trim>
+function handleTasks(deadline) {
+    while (deadline.timeRemaining() > MIN_TASK_TIME && tasks.length) {
+        processTask(tasks.pop());
+    }
 
-            </p>
+    if (tasks.length) {
+        requestIdleCallback(handleTasks);
+    }
+}
+
+requestIdleCallback(handleTasks);</code>
+            </pre>
         </section>
 
         <section>
-            <h3>Tip 2: Use workers for background operations</h3>
-            <p>
+            <h3>Tip 2: Use Web Workers for background operations</h3>
+<pre class="fragment fade-out"
+     style="position:absolute; margin-left: auto; margin-right: auto; left: 0; right: 0; box-shadow: none;"
+     data-fragment-index="0">
+                <code class="hljs" data-trim>
+// Watch for messages from the worker
+worker.onmessage = function (e) {
+    // The message from the client:
+    console.log(e.data);
+};
 
-            </p>
+worker.postMessage('start');</code>
+            </pre>
+            <pre class="fragment fade-in"
+                 style="position:absolute; margin-left: auto; margin-right: auto; left: 0; right: 0; box-shadow: none;"
+                 data-fragment-index="0">
+                <code class="hljs" data-trim>
+onmessage = function(e){
+    if ( e.data === 'start' ) {
+        // Do some computation
+        done()
+    }
+};
+
+function done(){
+    // Send back the results to the parent page
+    postMessage('done');
+}</code>
+            </pre>
         </section>
 
         <section>
@@ -348,7 +431,7 @@
             <h3>Checklist</h3>
             <ul>
                 <li>divide your operations to 50ms chunks</li>
-                <li>Use workers for background operations</li>
+                <li>Use Web Workers for background operations</li>
             </ul>
         </section>
 
@@ -365,15 +448,33 @@
 
         <section>
             <h3>Tip 1: Prepare your data mockups</h3>
-            <p>
-
-            </p>
+            <pre style="position:absolute; margin-left: auto; margin-right: auto; left: 0; right: 0; box-shadow: none;"
+                 data-fragment-index="0">
+                <code class="hljs" data-trim>
+&lt;script&gt;
+    window.dataMockups = {
+        "_id": "570ce1ffa7a72b00d7b1c916",
+        "balance": "$1,510.99",
+        "picture": "http://placehold.it/32x32",
+        "age": 22,
+        "eyeColor": "brown",
+        "name": "Page Workman",
+        "gender": "male",
+        "email": "pageworkman@matrixity.com",
+        "phone": "+1 (831) 424-2078",
+        "address": "481 Bradford Street, Newcastle, Maryland, 855",
+            ...
+    };
+&lt;/script&gt;
+                </code>
+            </pre>
         </section>
 
         <section>
             <h3>Tip 2: Use service workers</h3>
             <p>
-
+                <img height="338" src="assets/img/offline-first-diagram.png"
+                     style="background: none; border: none; box-shadow: none;"/>
             </p>
         </section>
 
@@ -400,46 +501,70 @@
         <section>
             <h3>Tip 1: Try to understand compose & render of layers</h3>
             <p>
-                <img height="338" src="assets/img/layers.png" style="background: none; border: none; box-shadow: none;"/>
+                <img height="338" src="assets/img/layers.png"
+                     style="background: none; border: none; box-shadow: none;"/>
             </p>
         </section>
 
         <section>
             <h3>Tip 2: DOM structure is important</h3>
-            <p>
-                <img height="338" src="assets/img/DOM.png" style="background: none; border: none; box-shadow: none;"/>
-            </p>
+            <ul>
+                <li>3 elements = 0.003ms</li>
+                <li>1000 elements = 0.03ms</li>
+                <li>10000 elements = 0.36ms</li>
+                <li>+JQuery = 2,46ms</li>
+            </ul>
         </section>
 
-        <section>
+        <section class="replace">
             <h3>Tip 3: Choose modern frameworks</h3>
-            <p>
-
-            </p>
+            <div style="position:relative; height:405px; margin:0 auto;">
+                <img class="fragment" data-fragment-index="1" height="405" src="assets/img/mf_FPS.svg"
+                     style="background: none; border: none; box-shadow: none;"/>
+                <img class="fragment" data-fragment-index="2" height="405" src="assets/img/mf_layout.svg"
+                     style="background: none; border: none; box-shadow: none;"/>
+                <img class="fragment" data-fragment-index="3" height="405" src="assets/img/mf_paint.svg"
+                     style="background: none; border: none; box-shadow: none;"/>
+                <img class="fragment" data-fragment-index="4" height="405" src="assets/img/js_totalheap.svg"
+                     style="background: none; border: none; box-shadow: none;"/>
+            </div>
         </section>
 
         <section>
             <h3>Tip 4: Use flat or material CSS styles</h3>
-            <p class="fragment fade-out" style="position:absolute; margin-left: auto; margin-right: auto; left: 0; right: 0;" data-fragment-index="0">
-                <img height="338" src="assets/img/unflat.png" style="background: none; border: none; box-shadow: none;"/>
+            <p class="fragment fade-out"
+               style="position:absolute; margin-left: auto; margin-right: auto; left: 0; right: 0;"
+               data-fragment-index="0">
+                <img height="405" src="assets/img/unflat.png"
+                     style="background: none; border: none; box-shadow: none;"/>
             </p>
-            <p class="fragment fade-in" style="position:absolute; margin-left: auto; margin-right: auto; left: 0; right: 0;" data-fragment-index="0">
-                <img height="338" src="assets/img/flat.png" style="background: none; border: none; box-shadow: none;"/>
+            <p class="fragment fade-in"
+               style="position:absolute; margin-left: auto; margin-right: auto; left: 0; right: 0;"
+               data-fragment-index="0">
+                <img height="405" src="assets/img/flat.png" style="background: none; border: none; box-shadow: none;"/>
             </p>
-
         </section>
 
         <section>
             <h3>Tip 5: You must prepare images</h3>
             <p>
-                <img height="338" src="assets/img/images.png" style="background: none; border: none; box-shadow: none;"/>
+                <img height="338" src="assets/img/images.png"
+                     style="background: none; border: none; box-shadow: none;"/>
             </p>
         </section>
 
         <section>
             <h3>Tip 6: Use correct UI patterns</h3>
-            <p>
+            <p class="fragment fade-out"
+               style="position:absolute; margin-left: auto; margin-right: auto; left: 0; right: 0;"
+               data-fragment-index="0">
                 <img height="338" src="assets/img/list.gif" style="background: none; border: none; box-shadow: none;"/>
+            </p>
+            <p class="fragment fade-in"
+               style="position:absolute; margin-left: auto; margin-right: auto; left: 0; right: 0;"
+               data-fragment-index="0">
+                <img height="440" src="assets/img/slideUI.png"
+                     style="background: none; border: none; box-shadow: none;"/>
             </p>
         </section>
 
@@ -456,11 +581,9 @@
         </section>
 
         <!--conclusion part-->
-        <section>
+        <section class="replace">
             <h2>Conclusion</h2>
-            <p>
-
-            </p>
+            <h2 class="fragment"><span class="warning">Real performance for end user isn't the same as the performance for developer!</span></h2>
         </section>
 
         <section>

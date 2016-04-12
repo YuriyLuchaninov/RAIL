@@ -1,5 +1,5 @@
 body {
-    background: #f7f2e4 !important;
+    background: #ffffff !important;
 }
 
 .warning {
@@ -88,4 +88,11 @@ body {
 html.img-center div.slide-background.present {
     background-size: 100% 4px;
     background-repeat: repeat-y;
+}
+
+.replace .fragment.visible:not(.current-fragment) {
+    display: none;
+    height:0px;
+    line-height: 0px;
+    font-size: 0px;
 }
