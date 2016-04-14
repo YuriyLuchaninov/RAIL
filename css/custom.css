@@ -23,22 +23,22 @@ body {
 }
 
 .violet {
-    color: darkviolet;
+    color: #83c141;
     font-weight: 600 !important;
 }
 
 .pink {
-    color: deeppink;
+    color: #37c7aa;
     font-weight: 600 !important;
 }
 
 .blue {
-    color: blue;
+    color: #6761ed;
     font-weight: 600 !important;
 }
 
 .grey {
-    color: dimgrey;
+    color: #38a6d9;
     font-weight: 600 !important;
 }
 
