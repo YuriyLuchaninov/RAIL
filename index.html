@@ -65,7 +65,7 @@
         </section>
 
         <section>
-            <h2>Why CrossPlatform ?</h2>
+            <h2>Why Cross-Platform ?</h2>
             <ul>
                 <li class="fragment">it takes less money for development</li>
                 <li class="fragment">it takes less money for changing</li>
@@ -79,11 +79,11 @@
         </section>
 
         <section>
-            <h2>Always Exist "BUT"</h2>
+            <h2>THERE'S ALWAYS A "BUT"</h2>
             <p class="fragment">
                 JS platforms don't have enough performance!
             </p>
-            <h3 class="fragment"><span class="warning"><span style="text-decoration: underline;">But</span> it's just opinion</span>
+            <h3 class="fragment"><span class="warning"><span style="text-decoration: underline;">BUT</span> IT'S JUST AN OPINION</span>
             </h3>
         </section>
 
@@ -144,7 +144,7 @@
                 </tr>
                 <tr>
                     <td class="unacceptable">+10,000ms</td>
-                    <td>I'll come back later</td>
+                    <td>I'll come back later... maybe</td>
                 </tr>
                 </tbody>
             </table>
@@ -170,14 +170,14 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td>Tap to paint in <span class="pink">less then 100 ms</span></td>
-                    <td>Each frame completes in <span class="violet">less then 16ms</span></td>
+                    <td>Tap to paint in <span class="pink">less than 100 ms</span></td>
+                    <td>Each frame completes in <span class="violet">less than 16ms</span></td>
                     <td>Use idle time to proactively schedule work</td>
                     <td>Satisfy the <span class="blue">Response</span> goals during load</td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td>Drag to paint in <span class="violet">less then 16ms</span></td>
+                    <td>Drag to paint in <span class="violet">less than 16ms</span></td>
                     <td>Complete that work in <span class="grey">50ms chunks</span></td>
                     <td>Get first meaningful paint in <span class="blue">1,000ms</span></td>
                 </tr>
@@ -198,7 +198,7 @@
 
         <section>
             <h1><span class="violet" style="text-transform: none;">100ms</span></h1>
-            <h3>The Users feels an <span class="violet">instantaneous</span> response.</h3>
+            <h3>The User feels an <span class="violet">instantaneous</span> response.</h3>
             <p>Any longer and the connection between action and reaction is broken.</p>
         </section>
 
@@ -318,8 +318,8 @@ sideNavToggleButton.addEventListener('click', ()=> {
                 <li>In CPU we operate objects, in GPU - textures</li>
                 <li>Transition CPU - always separate repaint</li>
                 <li>Transition CPU - GPU takes time</li>
-                <li>Memory consumptions grows</li>
-                <li>One can anciently transfer unnecessary elements to GPU</li>
+                <li>Memory consumption grows</li>
+                <li>One can accidentally transfer unnecessary elements to GPU</li>
                 <li>*{transform: translateZ(0);} - BAD!</li>
             </ul>
         </section>
@@ -335,7 +335,7 @@ sideNavToggleButton.addEventListener('click', ()=> {
             <h3>Checklist</h3>
             <ul>
                 <li>Use FLIP approach</li>
-                <li>Use CSS Animations</li>
+                <li>Use CSS animations</li>
             </ul>
         </section>
 
@@ -351,7 +351,7 @@ sideNavToggleButton.addEventListener('click', ()=> {
         </section>
 
         <section>
-            <h3>Tip 1: Divide your operations to 50ms chunks</h3>
+            <h3>Tip 1: Divide your operations into 50ms chunks</h3>
             <pre class="fragment fade-in"
                  style="position:absolute; margin-left: auto; margin-right: auto; left: 0; right: 0; box-shadow: none;"
                  data-fragment-index="0">
@@ -430,7 +430,7 @@ function done(){
         <section>
             <h3>Checklist</h3>
             <ul>
-                <li>divide your operations to 50ms chunks</li>
+                <li>Divide your operations into 50ms chunks</li>
                 <li>Use Web Workers for background operations</li>
             </ul>
         </section>
@@ -443,7 +443,7 @@ function done(){
         <section>
             <h1><span class="blue" style="text-transform: none;">1sec</span></h1>
             <h3>The User's flow of <span class="blue">thought</span> is <span class="blue">seamless</span>.</h3>
-            <p>Beyond it, the user, loses focus and attention.</p>
+            <p>Beyond it, the user loses focus and attention.</p>
         </section>
 
         <section>
@@ -499,7 +499,7 @@ function done(){
         </section>
 
         <section>
-            <h3>Tip 1: Try to understand compose & render of layers</h3>
+            <h3>Tip 1: Try to understand composing & rendering of layers</h3>
             <p>
                 <img height="338" src="assets/img/layers.png"
                      style="background: none; border: none; box-shadow: none;"/>
@@ -571,7 +571,7 @@ function done(){
         <section>
             <h3>Checklist</h3>
             <ul>
-                <li>Try to understand compose & render of layers</li>
+                <li>Try to understand composing & rendering of layers</li>
                 <li>DOM structure is important</li>
                 <li>Choose modern frameworks</li>
                 <li>Use flat or material CSS styles</li>
